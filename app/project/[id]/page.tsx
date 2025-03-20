@@ -94,7 +94,7 @@ const projectsData = {
 export default function ProjectDetail() {
   const params = useParams()
   const projectId = params.id as string
-  const project = projectsData[projectId]
+  const project = projectsData[projectId as keyof typeof projectsData];
 
   const [isHovering, setIsHovering] = useState(false)
   const cursorRef = useRef<HTMLDivElement>(null)
