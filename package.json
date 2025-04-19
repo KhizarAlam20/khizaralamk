@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "custom-cursor-react": "^1.0.5",
     "feather-icons-react": "^0.8.1",
     "framer-motion": "^12.7.4",
     "gsap": "^3.12.7",
