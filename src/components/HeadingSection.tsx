@@ -26,7 +26,7 @@ const HeadingSection: React.FC = () => {
           KHIZAR
         </span>
         <span className="mt-[-12px] sm:mt-[-14px] md:mt-[-16px] lg:mt-[-18px] text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] text-yellowText text-center font-display leading-none z-10">
-          Khizar
+          ALAM
         </span>
       </div>
     </div>
