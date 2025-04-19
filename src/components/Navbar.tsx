@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import Icon from 'feather-icons-react';
 
 export default function Navbar() {
