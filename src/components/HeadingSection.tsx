@@ -1,9 +1,10 @@
 import React from "react";
 import MagneticImage from "./MagneticImage";
 
+
 const HeadingSection: React.FC = () => {
   return (
-    <div className="flex flex-col items-center mt-5">
+    <div className="flex flex-col items-center mt-10">
       <p className="mb-4 font-bold text-center text-[14px] sm:text-[16px] md:text-[14px] text-grayLight font-body">
         CRAFTING DIGITAL GOODS SINCE 2021
       </p>

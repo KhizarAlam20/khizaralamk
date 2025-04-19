@@ -1,24 +1,26 @@
 import  { useState } from 'react';
+import { ChartNoAxesGantt } from 'lucide-react';
 
 export default function Navbar() {
   const [enabled, setEnabled] = useState(false);
 
   return (
-    <nav className="w-full mt-5 text-white sm:mt-14 bg-background border-1">
+    <nav className="w-full mt-10 text-white sm:mt-14 bg-background border-1">
       <div className="mx-auto w-full max-w-[700px] px-4 flex items-center justify-between">
 
         {/* Icon Button */}
         <button className="text-white hover:text-[#DEEF1F] transition-colors duration-200">
           {/* <Icon icon="arrow-down-right" size={30} /> */}
+          <ChartNoAxesGantt size={35}  />
         </button>
 
         {/* Logo (Image) */}
         <div>
           <img
-            src="/logo.png"
+            src="/kzr.png"
             alt="Logo"
-            width={60}
-            height={60}
+            width={70}
+            height={70}
           />
         </div>
 

@@ -6,9 +6,9 @@ const AboutSection: React.FC = () => {
 
   return (
     <section className="w-full max-w-[700px] mx-auto pt-5">
-      <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] text-yellowText text-center font-display leading-none mb-10">
+      {/* <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] text-yellowText text-center font-display leading-none mb-10">
         ABOUT
-      </h2>
+      </h2> */}
 
       {/* Tab Navigation */}
       <div className="flex justify-center mb-12">
@@ -56,11 +56,12 @@ const AboutSection: React.FC = () => {
                 </li>
                 <li className="flex items-center">
                   <PenTool size={16} className="mr-3 text-yellowText" />
-                  <span className="transition-all duration-300 group-hover:text-white">Branding</span>
+                  <span className="transition-all duration-300 group-hover:text-white">Branding & Logo Design</span>
                 </li>
+               
                 <li className="flex items-center">
                   <PenTool size={16} className="mr-3 text-yellowText" />
-                  <span className="transition-all duration-300 group-hover:text-white">Logo Design</span>
+                  <span className="transition-all duration-300 group-hover:text-white">Character Design</span>
                 </li>
               </ul>
             </div>

@@ -1,9 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const CustomCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
+    // Check if screen is small (mobile)
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      setShowCursor(false);
+      return;
+    }
+
     const cursor = cursorRef.current;
 
     const moveCursor = (e: MouseEvent) => {
@@ -16,6 +24,8 @@ const CustomCursor: React.FC = () => {
     document.addEventListener("mousemove", moveCursor);
     return () => document.removeEventListener("mousemove", moveCursor);
   }, []);
+
+  if (!showCursor) return null;
 
   return (
     <div

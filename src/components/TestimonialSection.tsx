@@ -8,7 +8,7 @@ interface Testimonial {
   role: string;
   company: string;
   text: string;
-  image?: string; // Optional profile image
+  image?: string;
 }
 
 const TestimonialsSection: React.FC = () => {
@@ -38,23 +38,32 @@ const TestimonialsSection: React.FC = () => {
   ];
 
   return (
-    <section className="w-full max-w-[700px] mx-auto">
-      <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] text-yellowText text-center font-display leading-none mb-10">
+    <section className="w-full max-w-[700px] mx-auto px-4">
+      {/* Heading */}
+      <h2 className="text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] text-yellowText text-center font-display leading-none mb-8">
         TESTIMONIALS
       </h2>
-      
-      <p className="mb-12 text-center text-grayLight font-body">
+
+      {/* Subtitle */}
+      <p className="mb-10 text-center text-grayLight font-body max-w-[500px] mx-auto">
         What clients and collaborators have to say about working with me.
       </p>
 
+      {/* Testimonials */}
       <div className="space-y-6">
         {testimonials.map((testimonial) => (
-          <div 
+          <div
             key={testimonial.id}
-            className="bg-[#111111] p-6 sm:p-8 rounded-2xl border border-[#282828] hover:border-yellowText transition-all duration-300 group"
+            className="group relative bg-[#111111] p-6 sm:p-8 rounded-xl border border-[#282828] hover:border-yellowText transition-all duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1"
           >
+            {/* Big transparent quote mark in background */}
+            <div className="absolute top-4 right-4 text-[80px] text-yellowText/5 pointer-events-none select-none hidden sm:block">
+              <Quote />
+            </div>
+
+            {/* Top Info */}
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 rounded-full bg-[#181818] flex items-center justify-center group-hover:bg-yellowText/10 transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-[#181818] flex items-center justify-center group-hover:bg-yellowText/10 transition-all duration-300 ease-in-out">
                 <Quote size={24} className="text-yellowText" />
               </div>
               <div className="ml-4">
@@ -64,8 +73,10 @@ const TestimonialsSection: React.FC = () => {
                 </p>
               </div>
             </div>
-            <p className="transition-all duration-300 text-grayLight font-body group-hover:text-white">
-              "{testimonial.text}"
+
+            {/* Testimonial Text */}
+            <p className="text-grayLight font-body italic text-[15px] leading-relaxed transition-all duration-500 group-hover:text-white ease-in-out">
+              “{testimonial.text}”
             </p>
           </div>
         ))}
