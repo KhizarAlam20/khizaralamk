@@ -1,5 +1,4 @@
 import  { useState } from 'react';
-import Icon from 'feather-icons-react';
 
 export default function Navbar() {
   const [enabled, setEnabled] = useState(false);
@@ -10,7 +9,7 @@ export default function Navbar() {
 
         {/* Icon Button */}
         <button className="text-white hover:text-[#DEEF1F] transition-colors duration-200">
-          <Icon icon="arrow-down-right" size={30} />
+          {/* <Icon icon="arrow-down-right" size={30} /> */}
         </button>
 
         {/* Logo (Image) */}

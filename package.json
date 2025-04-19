@@ -10,8 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "feather-icons-react": "^0.8.1",
-    "framer-motion": "^12.7.4",
     "gsap": "^3.12.7",
     "lucide-react": "^0.488.0",
     "react": "^19.0.0",
