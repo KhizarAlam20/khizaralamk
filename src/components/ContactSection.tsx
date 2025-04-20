@@ -1,9 +1,9 @@
 import React from "react";
 import { Mail, PhoneCall, MapPin, Github, Linkedin, Twitter } from "lucide-react";
-import { useTheme } from "./Context/ThemeContext";
+// import { useTheme } from "./Context/ThemeContext";
 
 const ContactSection: React.FC = () => {
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
 
   return (
     <section className="w-full max-w-[700px] mx-auto">

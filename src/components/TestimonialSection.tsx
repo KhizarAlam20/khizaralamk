@@ -1,6 +1,6 @@
 import React from "react";
 import { Quote } from "lucide-react";
-import { useTheme } from "./Context/ThemeContext";
+// import { useTheme } from "./Context/ThemeContext";
 
 // Define a type for testimonial data
 interface Testimonial {
@@ -13,7 +13,7 @@ interface Testimonial {
 }
 
 const TestimonialsSection: React.FC = () => {
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
   
   // Sample testimonial data
   const testimonials: Testimonial[] = [

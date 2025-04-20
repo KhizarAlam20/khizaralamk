@@ -1,11 +1,11 @@
 // Updated HeadingSection.tsx with theme support
 import React from "react";
 import MagneticImage from "./MagneticImage";
-import { useTheme } from "./Context/ThemeContext";
+// import { useTheme } from "./Context/ThemeContext";
 import StarLogo from "./StarLogo";
 
 const HeadingSection: React.FC = () => {
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
 
   return (
     <div className="flex flex-col items-center mt-5">

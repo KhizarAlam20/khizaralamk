@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import HeadingSection from "./components/HeadingSection";
-import StarLogo from "./components/StarLogo";
 import "./App.css";
 import CustomCursor from "./components/CustomCursor";
 import AboutSection from "./components/AboutScreen";
