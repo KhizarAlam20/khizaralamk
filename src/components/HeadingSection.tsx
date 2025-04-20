@@ -1,17 +1,21 @@
+// Updated HeadingSection.tsx with theme support
 import React from "react";
 import MagneticImage from "./MagneticImage";
-
+import { useTheme } from "./Context/ThemeContext";
+import StarLogo from "./StarLogo";
 
 const HeadingSection: React.FC = () => {
+  const { theme } = useTheme();
+
   return (
-    <div className="flex flex-col items-center mt-10">
-      <p className="mb-4 font-bold text-center text-[14px] sm:text-[16px] md:text-[14px] text-grayLight font-body">
+    <div className="flex flex-col items-center mt-5">
+      <p className="mb-4 font-bold text-center text-[14px] sm:text-[16px] md:text-[14px] text-theme-gray font-body">
         CRAFTING DIGITAL GOODS SINCE 2021
       </p>
 
       <div className="relative flex flex-col items-center justify-center">
         <MagneticImage
-          src="/R.jpg"
+          src="/animal.jpg"
           alt="Overlay"
           className="absolute top-1/2 left-1/2 
                     w-[60px] h-[100px]
@@ -23,12 +27,21 @@ const HeadingSection: React.FC = () => {
                     z-20 shadow-xl"
         />
 
-        <span className="text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] text-yellowText text-center font-display leading-none z-10">
+        <span className="text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] text-theme-primary text-center font-display leading-none z-10">
           KHIZAR
         </span>
-        <span className="mt-[-12px] sm:mt-[-14px] md:mt-[-16px] lg:mt-[-18px] text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] text-yellowText text-center font-display leading-none z-10">
+        <span className="mt-[-12px] sm:mt-[-14px] md:mt-[-16px] lg:mt-[-18px] text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] text-theme-primary text-center font-display leading-none z-10 mb-10">
           ALAM
         </span>
+      </div>
+
+      <StarLogo />
+
+      <div className="mt-10">
+        <p className="font-bold text-center text-[14px] sm:text-[16px] md:text-[14px] text-theme-gray font-body">
+          I'm Khizar Alam – I blend development and design <br />
+          to craft impactful digital products.
+        </p>
       </div>
     </div>
   );

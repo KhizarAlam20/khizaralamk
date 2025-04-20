@@ -1,5 +1,6 @@
 import React from "react";
 import { Quote } from "lucide-react";
+import { useTheme } from "./Context/ThemeContext";
 
 // Define a type for testimonial data
 interface Testimonial {
@@ -12,6 +13,8 @@ interface Testimonial {
 }
 
 const TestimonialsSection: React.FC = () => {
+  const { theme } = useTheme();
+  
   // Sample testimonial data
   const testimonials: Testimonial[] = [
     {
@@ -40,12 +43,12 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section className="w-full max-w-[700px] mx-auto px-4">
       {/* Heading */}
-      <h2 className="text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] text-yellowText text-center font-display leading-none mb-8">
+      <h2 className="text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] text-theme-primary text-center font-display leading-none mb-8">
         TESTIMONIALS
       </h2>
 
       {/* Subtitle */}
-      <p className="mb-10 text-center text-grayLight font-body max-w-[500px] mx-auto">
+      <p className="mb-10 text-center text-theme-gray font-body max-w-[500px] mx-auto">
         What clients and collaborators have to say about working with me.
       </p>
 
@@ -54,29 +57,29 @@ const TestimonialsSection: React.FC = () => {
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="group relative bg-[#111111] p-6 sm:p-8 rounded-xl border border-[#282828] hover:border-yellowText transition-all duration-500 ease-in-out hover:shadow-lg hover:-translate-y-1"
+            className="relative p-6 transition-all duration-500 ease-in-out border group bg-theme-bg-card sm:p-8 rounded-xl border-theme-highlight hover:border-theme-primary hover:shadow-lg hover:-translate-y-1"
           >
             {/* Big transparent quote mark in background */}
-            <div className="absolute top-4 right-4 text-[80px] text-yellowText/5 pointer-events-none select-none hidden sm:block">
+            <div className="absolute top-4 right-4 text-[80px] text-theme-primary/5 pointer-events-none select-none hidden sm:block">
               <Quote />
             </div>
 
             {/* Top Info */}
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 rounded-full bg-[#181818] flex items-center justify-center group-hover:bg-yellowText/10 transition-all duration-300 ease-in-out">
-                <Quote size={24} className="text-yellowText" />
+              <div className="flex items-center justify-center w-12 h-12 transition-all duration-300 ease-in-out rounded-full bg-theme-bg-input group-hover:bg-theme-primary/10">
+                <Quote size={24} className="text-theme-primary" />
               </div>
               <div className="ml-4">
-                <h4 className="text-[18px] font-display text-white">{testimonial.name}</h4>
-                <p className="text-sm text-grayLight font-body">
+                <h4 className="text-[18px] font-display text-theme-text">{testimonial.name}</h4>
+                <p className="text-sm text-theme-gray font-body">
                   {testimonial.role}, {testimonial.company}
                 </p>
               </div>
             </div>
 
             {/* Testimonial Text */}
-            <p className="text-grayLight font-body italic text-[15px] leading-relaxed transition-all duration-500 group-hover:text-white ease-in-out">
-              “{testimonial.text}”
+            <p className="text-theme-gray font-body italic text-[15px] leading-relaxed transition-all duration-500 group-hover:text-theme-text ease-in-out">
+              "{testimonial.text}"
             </p>
           </div>
         ))}

@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import { Code, Palette, PenTool, Smartphone, Globe, Github, Database, Cloud, Figma, Image } from "lucide-react";
+import { useTheme } from "./Context/ThemeContext";
 
 const AboutSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("services");
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
 
   return (
-    <section className="w-full max-w-[700px] mx-auto pt-5">
-      {/* <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] text-yellowText text-center font-display leading-none mb-10">
+    <div className="w-full max-w-[700px] mx-auto px-4 bg-theme-bg-main mt-[-30px]">
+      <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] text-theme-primary text-center font-display leading-none mb-10">
         ABOUT
-      </h2> */}
+      </h2>
 
       {/* Tab Navigation */}
       <div className="flex justify-center mb-12">
-        <div className="bg-[#111111] p-1 rounded-full border border-[#282828] inline-flex">
+        <div className="inline-flex p-1 border rounded-full bg-theme-bg-card border-theme-highlight">
           <button
             onClick={() => setActiveTab("services")}
             className={`px-6 py-2 rounded-full text-sm font-display transition-all duration-300 ${
-              activeTab === "services" ? "bg-yellowText text-black" : "text-grayLight hover:text-white"
+              activeTab === "services" 
+                ? `bg-theme-primary ${isDark ? "text-black" : "text-white"}` 
+                : "text-theme-gray hover:text-theme-text"
             }`}
           >
             SERVICES
@@ -24,7 +29,9 @@ const AboutSection: React.FC = () => {
           <button
             onClick={() => setActiveTab("skills")}
             className={`px-6 py-2 rounded-full text-sm font-display transition-all duration-300 ${
-              activeTab === "skills" ? "bg-yellowText text-black" : "text-grayLight hover:text-white"
+              activeTab === "skills" 
+                ? `bg-theme-primary ${isDark ? "text-black" : "text-white"}` 
+                : "text-theme-gray hover:text-theme-text"
             }`}
           >
             SKILLS
@@ -42,46 +49,45 @@ const AboutSection: React.FC = () => {
         >
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {/* Design Services */}
-            <div className="bg-[#111111] p-6 rounded-2xl border border-[#282828] hover:border-yellowText transition-all duration-300 group">
+            <div className="p-6 transition-all duration-300 border bg-theme-bg-card rounded-2xl border-theme-highlight hover:border-theme-primary group">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-[#181818] flex items-center justify-center group-hover:bg-yellowText/10 transition-all duration-300">
-                  <Palette size={24} className="text-yellowText" />
+                <div className="flex items-center justify-center w-12 h-12 transition-all duration-300 rounded-full bg-theme-bg-input group-hover:bg-theme-primary/10">
+                  <Palette size={24} className="text-theme-primary" />
                 </div>
-                <h4 className="ml-4 text-[20px] font-display text-white">DESIGN</h4>
+                <h4 className="ml-4 text-[20px] font-display text-theme-text">DESIGN</h4>
               </div>
-              <ul className="space-y-3 text-grayLight font-body">
+              <ul className="space-y-3 text-theme-gray font-body">
                 <li className="flex items-center">
-                  <PenTool size={16} className="mr-3 text-yellowText" />
-                  <span className="transition-all duration-300 group-hover:text-white">UI/UX</span>
+                  <PenTool size={16} className="mr-3 text-theme-primary" />
+                  <span className="transition-all duration-300 group-hover:text-theme-text">UI/UX</span>
                 </li>
                 <li className="flex items-center">
-                  <PenTool size={16} className="mr-3 text-yellowText" />
-                  <span className="transition-all duration-300 group-hover:text-white">Branding & Logo Design</span>
+                  <PenTool size={16} className="mr-3 text-theme-primary" />
+                  <span className="transition-all duration-300 group-hover:text-theme-text">Branding</span>
                 </li>
-               
                 <li className="flex items-center">
-                  <PenTool size={16} className="mr-3 text-yellowText" />
-                  <span className="transition-all duration-300 group-hover:text-white">Character Design</span>
+                  <PenTool size={16} className="mr-3 text-theme-primary" />
+                  <span className="transition-all duration-300 group-hover:text-theme-text">Logo Design</span>
                 </li>
               </ul>
             </div>
             
             {/* Development Services */}
-            <div className="bg-[#111111] p-6 rounded-2xl border border-[#282828] hover:border-yellowText transition-all duration-300 group">
+            <div className="p-6 transition-all duration-300 border bg-theme-bg-card rounded-2xl border-theme-highlight hover:border-theme-primary group">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-[#181818] flex items-center justify-center group-hover:bg-yellowText/10 transition-all duration-300">
-                  <Code size={24} className="text-yellowText" />
+                <div className="flex items-center justify-center w-12 h-12 transition-all duration-300 rounded-full bg-theme-bg-input group-hover:bg-theme-primary/10">
+                  <Code size={24} className="text-theme-primary" />
                 </div>
-                <h4 className="ml-4 text-[20px] font-display text-white">DEVELOPMENT</h4>
+                <h4 className="ml-4 text-[20px] font-display text-theme-text">DEVELOPMENT</h4>
               </div>
-              <ul className="space-y-3 text-grayLight font-body">
+              <ul className="space-y-3 text-theme-gray font-body">
                 <li className="flex items-center">
-                  <Smartphone size={16} className="mr-3 text-yellowText" />
-                  <span className="transition-all duration-300 group-hover:text-white">Mobile App Development</span>
+                  <Smartphone size={16} className="mr-3 text-theme-primary" />
+                  <span className="transition-all duration-300 group-hover:text-theme-text">Mobile App Development</span>
                 </li>
                 <li className="flex items-center">
-                  <Globe size={16} className="mr-3 text-yellowText" />
-                  <span className="transition-all duration-300 group-hover:text-white">Web Development</span>
+                  <Globe size={16} className="mr-3 text-theme-primary" />
+                  <span className="transition-all duration-300 group-hover:text-theme-text">Web Development</span>
                 </li>
               </ul>
             </div>
@@ -95,19 +101,19 @@ const AboutSection: React.FC = () => {
           }`}
         >
           {/* Development Skills */}
-          <div className="bg-[#111111] p-8 rounded-2xl border border-[#282828] mb-6">
+          <div className="p-8 mb-6 border bg-theme-bg-card rounded-2xl border-theme-highlight">
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 rounded-full bg-[#181818] flex items-center justify-center">
-                <Code size={24} className="text-yellowText" />
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-theme-bg-input">
+                <Code size={24} className="text-theme-primary" />
               </div>
-              <h4 className="ml-4 text-[20px] font-display text-white">DEVELOPMENT</h4>
+              <h4 className="ml-4 text-[20px] font-display text-theme-text">DEVELOPMENT</h4>
             </div>
             
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div>
                 <div className="flex items-center mb-4">
-                  <h5 className="text-lg text-white font-display">Frontend</h5>
-                  <div className="h-px bg-[#282828] flex-grow ml-3"></div>
+                  <h5 className="text-lg text-theme-text font-display">Frontend</h5>
+                  <div className="flex-grow h-px ml-3 bg-theme-highlight"></div>
                 </div>
                 <div className="space-y-2">
                   <SkillItem icon={<Code size={16} />} label="React Native" />
@@ -119,8 +125,8 @@ const AboutSection: React.FC = () => {
               
               <div>
                 <div className="flex items-center mb-4">
-                  <h5 className="text-lg text-white font-display">Backend</h5>
-                  <div className="h-px bg-[#282828] flex-grow ml-3"></div>
+                  <h5 className="text-lg text-theme-text font-display">Backend</h5>
+                  <div className="flex-grow h-px ml-3 bg-theme-highlight"></div>
                 </div>
                 <div className="space-y-2">
                   <SkillItem icon={<Database size={16} />} label="Node.js" />
@@ -133,8 +139,8 @@ const AboutSection: React.FC = () => {
               
               <div>
                 <div className="flex items-center mb-4">
-                  <h5 className="text-lg text-white font-display">DevOps</h5>
-                  <div className="h-px bg-[#282828] flex-grow ml-3"></div>
+                  <h5 className="text-lg text-theme-text font-display">DevOps</h5>
+                  <div className="flex-grow h-px ml-3 bg-theme-highlight"></div>
                 </div>
                 <div className="space-y-2">
                   <SkillItem icon={<Github size={16} />} label="GitHub" />
@@ -146,12 +152,12 @@ const AboutSection: React.FC = () => {
           </div>
           
           {/* Design Skills */}
-          <div className="bg-[#111111] p-8 rounded-2xl border border-[#282828]">
+          <div className="p-8 border bg-theme-bg-card rounded-2xl border-theme-highlight">
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 rounded-full bg-[#181818] flex items-center justify-center">
-                <Palette size={24} className="text-yellowText" />
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-theme-bg-input">
+                <Palette size={24} className="text-theme-primary" />
               </div>
-              <h4 className="ml-4 text-[20px] font-display text-white">DESIGN</h4>
+              <h4 className="ml-4 text-[20px] font-display text-theme-text">DESIGN</h4>
             </div>
             
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -162,7 +168,7 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -170,8 +176,8 @@ const AboutSection: React.FC = () => {
 const SkillItem: React.FC<{ icon: React.ReactNode, label: string }> = ({ icon, label }) => {
   return (
     <div className="flex items-center cursor-pointer group">
-      <div className="mr-2 text-yellowText">{icon}</div>
-      <span className="transition-all duration-300 text-grayLight group-hover:text-white font-body">
+      <div className="mr-2 text-theme-primary">{icon}</div>
+      <span className="transition-all duration-300 text-theme-gray group-hover:text-theme-text font-body">
         {label}
       </span>
     </div>
@@ -181,9 +187,9 @@ const SkillItem: React.FC<{ icon: React.ReactNode, label: string }> = ({ icon, l
 // Helper component for design skill cards
 const SkillCard: React.FC<{ icon: React.ReactNode, label: string }> = ({ icon, label }) => {
   return (
-    <div className="bg-[#181818] p-4 rounded-xl flex items-center hover:bg-[#1c1c1c] transition-all duration-300 cursor-pointer group">
-      <div className="mr-3 text-yellowText">{icon}</div>
-      <span className="transition-all duration-300 text-grayLight group-hover:text-white font-body">
+    <div className="flex items-center p-4 transition-all duration-300 cursor-pointer bg-theme-bg-input rounded-xl hover:bg-theme-highlight group">
+      <div className="mr-3 text-theme-primary">{icon}</div>
+      <span className="transition-all duration-300 text-theme-gray group-hover:text-theme-text font-body">
         {label}
       </span>
     </div>

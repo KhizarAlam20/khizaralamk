@@ -2,39 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #DEEF1F;
+  --color-text: #FFFFFF;
+  --color-gray: #989898;
+  --color-bg: #121212;
+  --color-highlight: #282828;
+  --color-bg-card: #111111;
+  --color-bg-input: #181818;
+  --color-bg-opposite: #000000;
+  --transition-speed: 0.3s;
+}
+
+.light-theme {
+  --color-primary: #4169E1; /* Royal Blue for light theme */
+  --color-text: #212121;
+  --color-gray: #757575;
+  --color-bg: #FFFFFF;
+  --color-highlight: #E0E0E0;
+  --color-bg-card: #F5F5F5;
+  --color-bg-input: #EEEEEE;
+  --color-bg-opposite: #FFFFFF;
+}
+
+.dark-theme {
+  --color-primary: #DEEF1F;
+  --color-text: #FFFFFF;
+  --color-gray: #989898;
+  --color-bg: #121212;
+  --color-highlight: #282828;
+  --color-bg-card: #111111;
+  --color-bg-input: #181818;
+  --color-bg-opposite: #000000;
+}
+
+.theme-transition {
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease;
+}
 
 body {
-    background-color: #121212;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE 10+ */
-    overflow-x: hidden;
-    /* overflow-y: hidden; */
-  }
-  
-  
-  body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
+  background-color: var(--color-bg);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+  overflow-x: hidden;
+  color: var(--color-text);
+  transition: background-color var(--transition-speed) ease;
+}
 
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
 
-  body, html {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
-  }
-  
-  body::-webkit-scrollbar, 
-  html::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari and Opera */
-  }
+body, html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
 
+body::-webkit-scrollbar, 
+html::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
 
-  .custom-cursor {
-    border-radius: 50%;
-    mix-blend-mode: difference;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
+.custom-cursor {
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
 
-  
 .smooth-scroll-container {
   position: absolute;
   top: 0;

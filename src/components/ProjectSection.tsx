@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Code, Palette } from "lucide-react";
+import { useTheme } from "./Context/ThemeContext";
 
 // Define types for project data
 interface Project {
@@ -13,6 +14,8 @@ interface Project {
 
 const ProjectSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("featured");
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
 
   const projects: Project[] = [
     { id: 1, title: "E-commerce Platform", type: 'development', featured: true, link: "#" },
@@ -37,21 +40,23 @@ const ProjectSection: React.FC = () => {
   });
 
   return (
-    <section className="w-full max-w-[700px] mx-auto px-4">
+    <section className="w-full max-w-[700px] mx-auto px-4 bg-theme-bg-main">
       {/* Heading */}
-      <h2 className="text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] text-yellowText text-center font-display leading-none mb-8">
+      <h2 className="text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] text-theme-primary text-center font-display leading-none mb-8">
         PROJECTS
       </h2>
 
       {/* Tabs */}
       <div className="flex justify-center mb-10">
-        <div className="bg-[#111111] p-1 rounded-full border border-[#282828] inline-flex">
+        <div className="inline-flex p-1 border rounded-full bg-theme-bg-card border-theme-highlight">
           {["featured", "development", "design"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-2 rounded-full text-sm font-display transition-all duration-300 ${
-                activeTab === tab ? "bg-yellowText text-black" : "text-grayLight hover:text-white"
+                activeTab === tab 
+                  ? `bg-theme-primary ${isDark ? "text-black" : "text-white"}` 
+                  : "text-theme-gray hover:text-theme-text"
               }`}
             >
               {tab.toUpperCase()}
@@ -62,14 +67,14 @@ const ProjectSection: React.FC = () => {
 
       {/* Section Header Icon */}
       <div className="flex items-center mb-6">
-        <div className="w-10 h-10 rounded-full bg-[#181818] flex items-center justify-center">
+        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-theme-bg-input">
           {activeTab === "design" ? (
-            <Palette size={20} className="text-yellowText" />
+            <Palette size={20} className="text-theme-primary" />
           ) : (
-            <Code size={20} className="text-yellowText" />
+            <Code size={20} className="text-theme-primary" />
           )}
         </div>
-        <h4 className="ml-4 text-[18px] font-display text-white">
+        <h4 className="ml-4 text-[18px] font-display text-theme-text">
           {activeTab === "featured"
             ? "FEATURED PROJECTS"
             : activeTab === "development"
@@ -83,22 +88,22 @@ const ProjectSection: React.FC = () => {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="group relative aspect-square overflow-hidden rounded-[3px] bg-[#0F0E0E] border border-[#282828] hover:border-yellowText transition-all duration-500 ease-in-out"
+            className="group relative aspect-square overflow-hidden rounded-[3px] bg-theme-bg-card border border-theme-highlight hover:border-theme-primary transition-all duration-500 ease-in-out"
           >
             <a href={project.link} className="relative z-10 block w-full h-full">
               {/* Center logo or icon placeholder */}
               <div className="absolute inset-0 transition-transform duration-500 ease-in-out delay-75 group-hover:scale-110">
-                <div className="w-full h-full flex items-center justify-center text-[#282828] text-4xl font-bold relative z-10">
+                <div className="relative z-10 flex items-center justify-center w-full h-full text-4xl font-bold text-theme-highlight">
                   ✦
                 </div>
                 {/* Backdrop on hover */}
                 <div className="absolute inset-0 z-0 transition-opacity duration-500 ease-in-out delay-100 bg-black opacity-0 group-hover:opacity-40" />
               </div>
 
-              {/* Yellow hover label */}
+              {/* Project title label on hover */}
               <div className="absolute z-20 transition-opacity duration-500 ease-in-out delay-150 opacity-0 bottom-4 left-4 group-hover:opacity-100">
-                <div className="bg-yellowText px-3 py-1 rounded-tr-[3px] inline-block max-w-full">
-                  <span className="text-sm font-semibold text-black font-display whitespace-nowrap">
+                <div className="bg-theme-primary px-3 py-1 rounded-tr-[3px] inline-block max-w-full">
+                  <span className={`text-sm font-semibold font-display whitespace-nowrap ${isDark ? "text-black" : "text-white"}`}>
                     {project.title}
                   </span>
                 </div>
