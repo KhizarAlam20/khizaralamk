@@ -9,6 +9,10 @@ const HeadingSection: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center mt-5">
+      <div className="w-full bg-[#282828] text-[#DEEF1F] text-center text-[9px] sm:text-[12px] py-[2px] font-body tracking-wide mb-5">
+        ⚠️ Website in development — full version coming soon!
+      </div>
+
       <p className="mb-4 font-bold text-center text-[14px] sm:text-[16px] md:text-[14px] text-theme-gray font-body">
         CRAFTING DIGITAL GOODS SINCE 2021
       </p>

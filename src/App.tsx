@@ -43,10 +43,7 @@ const App: React.FC = () => {
         <div className="container px-4 mx-auto">
           <div className="flex flex-col items-center mt-10 mb-20">
             <HeadingSection />
-            {/* <p className="mb-4 font-bold text-center text-[14px] sm:text-[16px] md:text-[14px] text-theme-gray font-body">
-              I'm Khizar Alam – blending development and design <br/>
-              to craft impactful digital products.
-            </p> */}
+           
           </div>
 
           <div className="space-y-28">
