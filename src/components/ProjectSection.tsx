@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import { Code, Palette } from "lucide-react";
 import { useTheme } from "./Context/ThemeContext";
 
-// Define types for project data
 interface Project {
   id: number;
   title: string;
   type: 'development' | 'design';
-  featured?: boolean;
   image?: string;
   link: string;
 }
@@ -17,27 +15,31 @@ const ProjectSection: React.FC = () => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
-  const projects: Project[] = [
-    { id: 1, title: "E-commerce Platform", type: 'development', featured: true, link: "#" },
-    { id: 2, title: "Fitness App UI", type: 'design', featured: true, link: "#" },
-    { id: 3, title: "Banking Dashboard", type: 'development', featured: true, link: "#" },
-    { id: 4, title: "Task Management Tool", type: 'development', link: "#" },
-    { id: 5, title: "Social Media API", type: 'development', link: "#" },
-    { id: 6, title: "Weather App", type: 'development', link: "#" },
-    { id: 7, title: "Portfolio Site", type: 'development', link: "#" },
-    { id: 8, title: "Inventory System", type: 'development', link: "#" },
-    { id: 9, title: "Mobile App Prototype", type: 'design', link: "#" },
-    { id: 10, title: "Brand Identity", type: 'design', link: "#" },
-    { id: 11, title: "Landing Page Design", type: 'design', link: "#" },
-    { id: 12, title: "Dashboard UI Kit", type: 'design', link: "#" },
-    { id: 13, title: "Icon Set", type: 'design', link: "#" },
-    { id: 14, title: "Website Redesign", type: 'design', link: "#" },
+  const featuredProjects: Project[] = [
+    { id: 1, title: "E-commerce Platform", type: 'development', link: "#" },
+    
   ];
 
-  const filteredProjects = projects.filter(project => {
-    if (activeTab === "featured") return project.featured;
-    return project.type === activeTab;
-  });
+  const projects: Project[] = [
+    { id: 2, title: "Music App Logo Design", type: 'design', image: "/danza-43.png", link: "#" },
+    { id: 3, title: "Banking Dashboard", type: 'development', link: "#" },
+    { id: 4, title: "Music App Logo Design", type: 'design', image: "/moorays.png", link: "#" },
+    { id: 5, title: "Task Management Tool", type: 'development', link: "#" },
+    { id: 6, title: "Social Media API", type: 'development', link: "#" },
+    { id: 7, title: "Weather App", type: 'development', link: "#" },
+    { id: 8, title: "Portfolio Site", type: 'development', link: "#" },
+    { id: 9, title: "Inventory System", type: 'development', link: "#" },
+    { id: 10, title: "Mobile App Prototype", type: 'design', image: "/plantree.png", link: "#" },
+    { id: 11, title: "Brand Identity", type: 'design', link: "#" },
+    { id: 12, title: "Landing Page Design", type: 'design', link: "#" },
+    { id: 13, title: "Dashboard UI Kit", type: 'design', link: "#" },
+    { id: 14, title: "Icon Set", type: 'design', link: "#" },
+    { id: 15, title: "Website Redesign", type: 'design', link: "#" },
+  ];
+
+  const filteredProjects = activeTab === "featured"
+    ? featuredProjects
+    : projects.filter(project => project.type === activeTab);
 
   return (
     <section className="w-full max-w-[700px] mx-auto px-4 bg-theme-bg-main">
@@ -90,19 +92,33 @@ const ProjectSection: React.FC = () => {
             key={project.id}
             className="group relative aspect-square overflow-hidden rounded-[3px] bg-theme-bg-card border border-theme-highlight hover:border-theme-primary transition-all duration-500 ease-in-out"
           >
-            <a href={project.link} className="relative z-10 block w-full h-full"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
+            <a
+              href={project.link}
+              className="relative z-10 block w-full h-full"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
             >
-              {/* Center logo or icon placeholder */}
-              <div className="absolute inset-0 transition-transform duration-500 ease-in-out delay-75 group-hover:scale-110">
-                <div className="relative z-10 flex items-center justify-center w-full h-full text-4xl font-bold text-theme-highlight">
-                  ✦
+              {/* Project image or fallback */}
+              {project.image ? (
+                <div className="absolute inset-0 transition-transform duration-500 ease-in-out delay-75 group-hover:scale-110">
+                  <div className="relative w-full h-full">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="absolute inset-0 z-0 transition-opacity duration-500 ease-in-out delay-100 bg-black opacity-0 group-hover:opacity-40" />
+                  </div>
                 </div>
-                {/* Backdrop on hover */}
-                <div className="absolute inset-0 z-0 transition-opacity duration-500 ease-in-out delay-100 bg-black opacity-0 group-hover:opacity-40" />
-              </div>
+              ) : (
+                <div className="absolute inset-0 transition-transform duration-500 ease-in-out delay-75 group-hover:scale-110">
+                  <div className="relative z-10 flex items-center justify-center w-full h-full text-4xl font-bold text-theme-highlight">
+                    ✦
+                  </div>
+                  <div className="absolute inset-0 z-0 transition-opacity duration-500 ease-in-out delay-100 bg-black opacity-0 group-hover:opacity-40" />
+                </div>
+              )}
 
               {/* Project title label on hover */}
               <div className="absolute z-20 transition-opacity duration-500 ease-in-out delay-150 opacity-0 bottom-4 left-4 group-hover:opacity-100">
