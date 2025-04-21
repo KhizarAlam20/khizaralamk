@@ -21,15 +21,15 @@ const ProjectSection: React.FC = () => {
   ];
 
   const projects: Project[] = [
-    { id: 2, title: "Music App Logo Design", type: 'design', image: "/danza-43.png", link: "#" },
+    { id: 2, title: "Music App Logo Design", type: 'design', image: "https://res.cloudinary.com/dityjpdl6/image/upload/f_auto,q_auto/zjgqltpwapkbqzcg6vuc.jpg", link: "#" },
     { id: 3, title: "Banking Dashboard", type: 'development', link: "#" },
-    { id: 4, title: "Music App Logo Design", type: 'design', image: "/moorays.png", link: "#" },
+    { id: 4, title: "Music App Logo Design", type: 'design', image: "https://res.cloudinary.com/dityjpdl6/image/upload/f_auto,q_auto/v1745246092/ghyiv4wjsqevnlum25qy.jpg", link: "#" },
     { id: 5, title: "Task Management Tool", type: 'development', link: "#" },
     { id: 6, title: "Social Media API", type: 'development', link: "#" },
     { id: 7, title: "Weather App", type: 'development', link: "#" },
     { id: 8, title: "Portfolio Site", type: 'development', link: "#" },
     { id: 9, title: "Inventory System", type: 'development', link: "#" },
-    { id: 10, title: "Mobile App Prototype", type: 'design', image: "/plantree.png", link: "#" },
+    { id: 10, title: "Mobile App Prototype", type: 'design', image: "https://res.cloudinary.com/dityjpdl6/image/upload/f_auto,q_auto/v1745246150/hinbcw7k8gm92mtbiqg1.jpg", link: "#" },
     { id: 11, title: "Brand Identity", type: 'design', link: "#" },
     { id: 12, title: "Landing Page Design", type: 'design', link: "#" },
     { id: 13, title: "Dashboard UI Kit", type: 'design', link: "#" },
