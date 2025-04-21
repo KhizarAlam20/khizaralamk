@@ -112,7 +112,7 @@ const ContactSection: React.FC = () => {
       </div>
 
       {/* Social Links */}
-      <div className="flex justify-center gap-4 mt-12">
+      <div className="flex justify-center gap-4 mt-12 mb-12">
         <a href="#" className="flex items-center justify-center w-12 h-12 transition-all duration-300 rounded-full bg-theme-bg-input hover:bg-theme-primary/10 group">
           <Github size={22} className="text-theme-primary" />
         </a>

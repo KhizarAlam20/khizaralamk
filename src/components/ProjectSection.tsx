@@ -90,7 +90,11 @@ const ProjectSection: React.FC = () => {
             key={project.id}
             className="group relative aspect-square overflow-hidden rounded-[3px] bg-theme-bg-card border border-theme-highlight hover:border-theme-primary transition-all duration-500 ease-in-out"
           >
-            <a href={project.link} className="relative z-10 block w-full h-full">
+            <a href={project.link} className="relative z-10 block w-full h-full"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            >
               {/* Center logo or icon placeholder */}
               <div className="absolute inset-0 transition-transform duration-500 ease-in-out delay-75 group-hover:scale-110">
                 <div className="relative z-10 flex items-center justify-center w-full h-full text-4xl font-bold text-theme-highlight">

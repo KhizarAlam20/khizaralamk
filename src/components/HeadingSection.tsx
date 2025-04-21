@@ -15,7 +15,7 @@ const HeadingSection: React.FC = () => {
 
       <div className="relative flex flex-col items-center justify-center">
         <MagneticImage
-          src="/animal.jpg"
+          src="/me2.png"
           alt="Overlay"
           className="absolute top-1/2 left-1/2 
                     w-[60px] h-[100px]
@@ -24,7 +24,7 @@ const HeadingSection: React.FC = () => {
                     lg:w-[110px] lg:h-[180px]
                     object-cover rounded-[100px]
                     transform -translate-x-1/2 -translate-y-1/2
-                    z-20 shadow-xl"
+                    z-20 shadow-xl grayscale hover:grayscale-0 "
         />
 
         <span className="text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] text-theme-primary text-center font-display leading-none z-10">
@@ -38,7 +38,7 @@ const HeadingSection: React.FC = () => {
       <StarLogo />
 
       <div className="mt-10">
-        <p className="font-bold text-center text-[14px] sm:text-[16px] md:text-[14px] text-theme-gray font-body">
+        <p className="font-bold text-center text-[14px] sm:text-[16px] md:text-[16px] text-theme-gray font-body">
           I'm Khizar Alam – I blend development and design <br />
           to craft impactful digital products.
         </p>

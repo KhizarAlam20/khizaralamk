@@ -8,7 +8,7 @@ export default function Navbar() {
   const isDark = theme === 'dark';
 
   return (
-    <nav className="w-full px-4 mt-12 text-theme-text sm:mt-14 border-1">
+    <nav className="w-full px-4 mt-12 text-theme-text sm:mt-20 border-1">
       <div className="mx-auto w-full max-w-[700px] px-4 flex items-center justify-between">
         {/* Icon Button */}
         <button className="transition-colors duration-200 text-theme-gray hover:text-theme-primary">
