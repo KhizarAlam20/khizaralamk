@@ -1,81 +1,88 @@
 import React from "react";
 import { Mail, PhoneCall, MapPin, Github, Linkedin, Instagram } from "lucide-react";
 
+interface ContactCard {
+  id: number;
+  label: string;
+  value: string;
+  icon: React.ReactNode;
+  link?: string;
+}
+
+const contactCards: ContactCard[] = [
+  {
+    id: 1,
+    label: "Email",
+    value: "khizaralam25@gmail.com",
+    icon: <Mail size={20} />,
+    link: "mailto:khizaralam25@gmail.com",
+  },
+  {
+    id: 2,
+    label: "Phone",
+    value: "+92 311 0000000",
+    icon: <PhoneCall size={20} />,
+    link: "tel:+923110000000",
+  },
+  {
+    id: 3,
+    label: "Location",
+    value: "Karachi, Pakistan",
+    icon: <MapPin size={20} />,
+  },
+  {
+    id: 4,
+    label: "GitHub",
+    value: "KhizarAlam20",
+    icon: <Github size={20} />,
+    link: "https://github.com/KhizarAlam20",
+  },
+  {
+    id: 5,
+    label: "LinkedIn",
+    value: "khizar-alam",
+    icon: <Linkedin size={20} />,
+    link: "https://linkedin.com/in/khizar-alam-5718532a5",
+  },
+  {
+    id: 6,
+    label: "Instagram",
+    value: "@khizaralam09",
+    icon: <Instagram size={20} />,
+    link: "https://instagram.com/khizaralam09",
+  },
+];
+
 const ContactSection: React.FC = () => {
   return (
-    <section className="w-full max-w-[700px] mx-auto">
-      <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] text-theme-primary text-center font-display leading-none mb-8">
+    <section className="w-full max-w-[700px] mx-auto px-4 pb-10">
+      <h2 className="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] text-theme-primary text-center font-display leading-none mb-6">
         CONTACT
       </h2>
-      
-      <div className="p-6 border bg-theme-bg-card rounded-xl border-theme-highlight">
-        {/* Contact Form */}
-        <form className="space-y-4">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <input
-              type="text"
-              className="w-full p-3 transition-all border rounded-lg bg-theme-bg-input border-theme-highlight focus:border-theme-primary focus:outline-none text-theme-text font-body"
-              placeholder="Your name"
-            />
-            <input
-              type="email"
-              className="w-full p-3 transition-all border rounded-lg bg-theme-bg-input border-theme-highlight focus:border-theme-primary focus:outline-none text-theme-text font-body"
-              placeholder="Your email"
-            />
-          </div>
-          
-          <input
-            type="text"
-            className="w-full p-3 transition-all border rounded-lg bg-theme-bg-input border-theme-highlight focus:border-theme-primary focus:outline-none text-theme-text font-body"
-            placeholder="Subject"
-          />
-          
-          <textarea
-            rows={4}
-            className="w-full p-3 transition-all border rounded-lg bg-theme-bg-input border-theme-highlight focus:border-theme-primary focus:outline-none text-theme-text font-body"
-            placeholder="Your message"
-          ></textarea>
-          
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="px-6 py-3 font-medium text-black transition-colors rounded-full bg-theme-primary font-body hover:bg-white"
-            >
-              SEND
-            </button>
-          </div>
-        </form>
-      </div>
+      <p className="text-center text-theme-gray font-body mb-10 max-w-[500px] mx-auto">
+        Feel free to reach out or connect with me through any of the platforms below.
+      </p>
 
-      {/* Contact Info + Social Links in one row */}
-      <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
-        <a href="mailto:hello@khizaralam.dev" className="flex items-center gap-2 transition-colors text-theme-gray hover:text-theme-primary">
-          <Mail size={18} />
-          <span className="font-body">khizaralam25@gmail.com</span>
-        </a>
-        
-        <a href="tel:+1234567890" className="flex items-center gap-2 transition-colors text-theme-gray hover:text-theme-primary">
-          <PhoneCall size={18} />
-          <span className="font-body">+92311-XXXXXX</span>
-        </a>
-        
-        <div className="flex items-center gap-2 text-theme-gray">
-          <MapPin size={18} className="text-theme-primary" />
-          <span className="font-body">Karachi, Pakistan</span>
-        </div>
-      </div>
-
-      {/* Social Links */}
-      <div className="flex justify-center gap-4 mt-6 mb-10">
-        <a href="https://www.github.com/KhizarAlam20" target="blank" className="flex items-center justify-center w-10 h-10 transition-all rounded-full bg-theme-bg-input hover:bg-theme-primary/10">
-          <Github size={20} className="text-theme-primary" />
-        </a>
-        <a href="https://www.linkedin.com/in/khizar-alam-5718532a5/" target="blank" className="flex items-center justify-center w-10 h-10 transition-all rounded-full bg-theme-bg-input hover:bg-theme-primary/10">
-          <Linkedin size={20} className="text-theme-primary" />
-        </a>
-        <a href="https://www.instagram.com/khizaralam09/" className="flex items-center justify-center w-10 h-10 transition-all rounded-full bg-theme-bg-input hover:bg-theme-primary/10">
-          <Instagram size={20} className="text-theme-primary" />
-        </a>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {contactCards.map((item) => (
+          <a
+            key={item.id}
+            href={item.link || "#"}
+            target={item.link?.startsWith("http") ? "_blank" : undefined}
+            rel="noopener noreferrer"
+            className={`group flex items-start gap-4 p-5 border rounded-xl transition-all duration-300 bg-theme-bg-card border-theme-highlight hover:border-theme-primary hover:shadow-md ${
+              item.link ? "cursor-pointer" : "cursor-default"
+            }`}
+          >
+            <div className="flex items-center justify-center w-11 h-11 rounded-full bg-theme-bg-input group-hover:bg-theme-primary/10">
+              <div className="text-theme-primary">{item.icon}</div>
+            </div>
+            <div>
+              <p className="text-theme-text font-display text-base">{item.label}</p>
+              <p className="text-theme-gray font-body text-sm">{item.value}</p>
+            </div>
+          </a>
+        ))}
       </div>
     </section>
   );
