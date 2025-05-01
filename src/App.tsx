@@ -1,5 +1,4 @@
 // Updated App.tsx
-import { Analytics } from "@vercel/analytics/react"
 import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import HeadingSection from "./components/HeadingSection";
