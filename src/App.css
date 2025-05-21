@@ -2,78 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-primary: #DEEF1F;
-  --color-text: #FFFFFF;
-  --color-gray: #989898;
-  --color-bg: #121212;
-  --color-highlight: #282828;
-  --color-bg-card: #111111;
-  --color-bg-input: #181818;
-  --color-bg-opposite: #000000;
-  --transition-speed: 0.3s;
+/* Two vertical gray lines */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: gray;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.light-theme {
-  --color-primary: #4169E1; /* Royal Blue for light theme */
-  --color-text: #212121;
-  --color-gray: #757575;
-  --color-bg: #FFFFFF;
-  --color-highlight: #E0E0E0;
-  --color-bg-card: #F5F5F5;
-  --color-bg-input: #EEEEEE;
-  --color-bg-opposite: #FFFFFF;
+body::before {
+  left: 22%;
 }
 
-.dark-theme {
-  --color-primary: #DEEF1F;
-  --color-text: #FFFFFF;
-  --color-gray: #989898;
-  --color-bg: #121212;
-  --color-highlight: #282828;
-  --color-bg-card: #111111;
-  --color-bg-input: #181818;
-  --color-bg-opposite: #000000;
+body::after {
+  right: 22%;
 }
 
-.theme-transition {
-  transition: background-color var(--transition-speed) ease,
-              color var(--transition-speed) ease;
+/* Responsive adjustment for mobile devices */
+@media (max-width: 640px) {
+  body::before {
+    left: 2%;
+  }
+  body::after {
+    right: 2%;
+  }
 }
 
-body {
-  background-color: var(--color-bg);
+/* In your App.css or a global CSS file */
+.hide-scrollbar {
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE 10+ */
-  overflow-x: hidden;
-  color: var(--color-text);
-  transition: background-color var(--transition-speed) ease;
+  -ms-overflow-style: none;  /* IE and Edge */
 }
-
-body::-webkit-scrollbar {
+.hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
-body, html {
+html, body {
+  scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  user-select: none; /* Disable text selection */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
-body::-webkit-scrollbar, 
-html::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+.scroll-reveal {
+  margin: 20px 0;
 }
 
-.custom-cursor {
-  border-radius: 50%;
-  mix-blend-mode: difference;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+.scroll-reveal-text {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
-.smooth-scroll-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  will-change: transform;
+.word {
+  display: inline-block;
 }

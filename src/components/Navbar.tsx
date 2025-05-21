@@ -1,53 +1,48 @@
-// Updated Navbar.tsx
-import {  Sun, Moon } from 'lucide-react';
-import { useTheme } from '../components/Context/ThemeContext';
-import { ChartNoAxesGantt } from 'lucide-react';
+import { Home, X, Instagram, FileText, ChevronRight } from 'lucide-react';
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
-  const isDark = theme === 'dark';
+  // common button classes for icons
+  const iconBtnBase =
+    "flex items-center justify-center w-10 h-10 rounded-[12px] " +
+    "transition-all duration-300 ease-in-out transform";
 
   return (
-    <nav className="w-full px-4 mt-12 text-theme-text sm:mt-20 border-1">
-      <div className="mx-auto w-full max-w-[700px] px-4 flex items-center justify-between">
-        {/* Icon Button */}
-        <button className="transition-colors duration-200 text-theme-gray hover:text-theme-primary">
-        <ChartNoAxesGantt
-     size={35}
-     
-   />
-
+    <nav className="fixed z-50 transform -translate-x-1/2 top-8 left-1/2">
+  <div className="flex items-center bg-white/50 backdrop-blur-md border border-gray-200 rounded-[18px] h-16 px-4">
+        {/* Home */}
+        <button className={`${iconBtnBase} hover:bg-gray-100 hover:scale-125`}>
+          <Home size={20} className="text-black" />
         </button>
 
-        {/* Logo (Image) */}
-        <div className=""> 
-        <img
-            src="/kzr.png"
-            alt="Logo"
-            width={60}
-            height={60}
-          />
+        {/* Divider */}
+        <div className="w-px h-10 mx-3 bg-gray-200" />
+
+        {/* Middle icons */}
+        <div className="flex items-center space-x-3">
+          <button className={`${iconBtnBase} hover:bg-gray-100 hover:scale-125`}>
+            <X size={20} className="text-black" />
+          </button>
+          <button className={`${iconBtnBase} hover:bg-gray-100 hover:scale-125`}>
+            <Instagram size={20} className="text-black" />
+          </button>
+          <button className={`${iconBtnBase} hover:bg-gray-100 hover:scale-125`}>
+            <FileText size={20} className="text-black" />
+          </button>
         </div>
 
-        {/* Custom Switch */}
-        <div
-          onClick={toggleTheme}
-          className={`w-16 h-9 flex items-center rounded-full px-[3px] cursor-pointer transition-colors duration-300 relative ${
-            isDark ? 'bg-[#DEEF1F]' : 'bg-[#4169E1]'
-          }`}
+        {/* Divider */}
+        <div className="w-px h-10 mx-3 bg-gray-200" />
+
+        {/* Book a Call */}
+        <button
+          className="group relative flex items-center h-12 bg-black text-white text-sm font-medium rounded-[14px] px-3 ml-2 transition-all duration-300 ease-in-out hover:pr-8 hover:bg-gray-800"
         >
-          <div className="absolute flex items-center justify-center w-full h-full">
-            <div className="flex items-center justify-between w-10">
-              <Sun size={14} className={`text-black transition-opacity ${isDark ? 'opacity-100' : 'opacity-0'}`} />
-              <Moon size={14} className={`text-white transition-opacity ${isDark ? 'opacity-0' : 'opacity-100'}`} />
-            </div>
-          </div>
-          <div
-            className={`w-7 h-7 rounded-full bg-theme-bg-opposite z-10 transition-transform duration-300 transform ${
-              isDark ? 'translate-x-7' : 'translate-x-0'
-            }`}
+          <span>Book a Call</span>
+          <ChevronRight
+            size={16}
+            className="absolute transition-all duration-300 ease-in-out translate-x-2 -translate-y-1/2 opacity-0 right-3 top-1/2 group-hover:opacity-100 group-hover:translate-x-0"
           />
-        </div>
+        </button>
       </div>
     </nav>
   );

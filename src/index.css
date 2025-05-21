@@ -11,3 +11,16 @@
   body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
+  .scroll-reveal {
+    margin: 20px 0;
+  }
+  
+  .scroll-reveal-text {
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  
+  .word {
+    display: inline-block;
+  }

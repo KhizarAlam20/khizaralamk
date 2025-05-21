@@ -1,0 +1,20 @@
+.scroll-reveal {
+    margin: 20px 0;
+  }
+  
+  .scroll-reveal-text {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 200;
+  }
+  
+  .word {
+    display: inline-block;
+  }
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.font-display {
+  font-family: 'Big Shoulders Display', cursive;
+}

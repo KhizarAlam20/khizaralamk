@@ -9,10 +9,6 @@ import ProjectSection from "./components/ProjectSection";
 import ContactSection from "./components/ContactSection";
 import TestimonialsSection from "./components/TestimonialSection";
 import { ThemeProvider } from "./components/Context/ThemeContext";
-import ImageCarousel from "./components/items/ImageCarousel";
-import InfiniteMenu from "./components/items/InfiniteMenu";
-import DesignProjects from "./components/DesignProjects";
-import MyServices from "./components/screens/MyServices";
 
 const App: React.FC = () => {
 
@@ -37,48 +33,28 @@ const App: React.FC = () => {
       document.removeEventListener("contextmenu", blockContextMenu);
     };
   }, []);
-
-  const items = [
-    {
-      image: 'https://picsum.photos/300/300?grayscale',
-      link: 'https://google.com/',
-      title: 'Item 1',
-      description: 'This is pretty cool, right?'
-    },
-    {
-      image: 'https://picsum.photos/400/400?grayscale',
-      link: 'https://google.com/',
-      title: 'Item 2',
-      description: 'This is pretty cool, right?'
-    },
-    {
-      image: 'https://picsum.photos/500/500?grayscale',
-      link: 'https://google.com/',
-      title: 'Item 3',
-      description: 'This is pretty cool, right?'
-    },
-    {
-      image: 'https://picsum.photos/600/600?grayscale',
-      link: 'https://google.com/',
-      title: 'Item 4',
-      description: 'This is pretty cool, right?'
-    }
-  ];
-  
   
   return (
-    
-      <div className="min-h-screen font-sans hide-scrollbar ">
-        {/* <CustomCursor /> */}
+    <ThemeProvider>
+      <div className="min-h-screen font-sans cursor-none theme-transition">
+        <CustomCursor />
         <Navbar />
-           <HeadingSection/>
-   <ImageCarousel/>
-       <AboutSection/>
-       {/* <InfiniteMenu items={items}/> */}
-       <ProjectSection/>
-       <MyServices/>
-       {/* <DesignProjects/> */}
+
+        <div className="container px-4 mx-auto">
+          <div className="flex flex-col items-center mt-10 mb-20">
+            <HeadingSection />
+           
+          </div>
+
+          <div className="space-y-28">
+            <AboutSection />
+            <ProjectSection />
+            <TestimonialsSection/>
+            <ContactSection />
+          </div>
+        </div>
       </div>
+    </ThemeProvider>
   );
 };
 
